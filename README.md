@@ -10,3 +10,4 @@
 ---
 
 ### 와이어프레임...
+![Image](https://github.com/user-attachments/assets/071999e3-f5c7-40d5-8a3f-7b8004f792ee)
