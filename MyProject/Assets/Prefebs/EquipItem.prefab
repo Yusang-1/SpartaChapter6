@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1065874736733151185}
   - component: {fileID: 1243253660079040310}
   - component: {fileID: 4457962588700764519}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EquipItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
