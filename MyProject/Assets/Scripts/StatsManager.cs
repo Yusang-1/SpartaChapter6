@@ -36,15 +36,20 @@ public class StatsManager : MonoBehaviour, InterfaceStats
     }
     void Update()
     {
-        ContinuousHeal(ref StatsManager.Instance.playerStats.curStamina, -0.1f);
+        MomentaryHeal(ref Instance.playerStats.curStamina, -0.1f);
     }
     public void ContinuousHeal(ref float energe, float healRate)
     {
         energe += healRate;
     }
 
-    public void MomentaryHeal(float energe, float healRate)
+    public void MomentaryHeal(ref float energe, float healRate)
     {
-        
+        energe += healRate;
+    }
+
+    public void LimitValue(ref float energe, float max)
+    {
+
     }
 }
