@@ -1,4 +1,3 @@
-using UnityEngine;
 public abstract class AbsStats
 {
     public float MaxHp;

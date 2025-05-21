@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class PlayerStats : AbsStats
 {
     int atk = 0;
@@ -12,14 +8,4 @@ public class PlayerStats : AbsStats
     {
         curHp = playerMaxHp; curStamina = playerMaxStamina;
     }
-
-    //private void Start()
-    //{
-
-    //}
-
-    //private void Update()
-    //{
-    //    StatsManager.Instance.ContinuousHeal(ref StatsManager.Instance.playerStats.curStamina, staminaMinus);        
-    //}
 }
