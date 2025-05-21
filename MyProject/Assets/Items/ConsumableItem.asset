@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: "\uC18C\uBAA8\uD488"
   description: "\uC18C\uBAA8\uD488\uC785\uB2C8\uB2E4."
   type: 1
-  dropPrefeb: {fileID: 0}
+  dropPrefeb: {fileID: 9071110827989697357, guid: 4698d0c35cc02c74390d917f9d0e911a, type: 3}
   isStackable: 1
   maxStack: 10
   consumables:
