@@ -5,4 +5,5 @@ public class PlayerStats : AbsStats
     {
         curHp = playerMaxHp; curStamina = playerMaxStamina;
     }
+
 }

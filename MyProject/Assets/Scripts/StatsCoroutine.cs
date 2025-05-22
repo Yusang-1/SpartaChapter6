@@ -36,9 +36,9 @@ public class StatsCoroutine : MonoBehaviour, IInterfaceStats
         energe += healRate;
     }
 
-    public void MomentaryHeal(ref float energe, float healRate)
+    public float MomentaryHeal(float energe, float healRate)
     {
-        energe += healRate;
+        return energe += healRate;
     }
 
     public void LimitValue(ref float energe, float max)
