@@ -12,6 +12,7 @@ public enum ConsumableTypeEnum
     Hp,
     Stamina
 }
+
 [System.Serializable]
 public class ItemDataConsumable
 {

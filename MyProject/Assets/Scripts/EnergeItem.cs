@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Threading;
 using UnityEngine;
 
 public class EnergeItem : MonoBehaviour
@@ -13,6 +11,5 @@ public class EnergeItem : MonoBehaviour
             statsCoroutine.DoCorountine();
             Destroy(this.gameObject);
         }
-    }
-   
+    }   
 }

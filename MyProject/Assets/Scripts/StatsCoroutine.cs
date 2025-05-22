@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class StatsCoroutine : MonoBehaviour, InterfaceStats
+public class StatsCoroutine : MonoBehaviour, IInterfaceStats
 {
     [SerializeField] StatUI statUI;
     IEnumerator coroutine;
@@ -36,9 +36,9 @@ public class StatsCoroutine : MonoBehaviour, InterfaceStats
         energe += healRate;
     }
 
-    public void MomentaryHeal(ref float energe, float healRate)
+    public float MomentaryHeal(float energe, float healRate)
     {
-        energe += healRate;
+        return energe += healRate;
     }
 
     public void LimitValue(ref float energe, float max)
