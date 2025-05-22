@@ -11,6 +11,5 @@ public class EnergeItem : MonoBehaviour
             statsCoroutine.DoCorountine();
             Destroy(this.gameObject);
         }
-    }
-   
+    }   
 }

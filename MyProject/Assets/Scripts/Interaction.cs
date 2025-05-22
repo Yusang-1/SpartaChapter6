@@ -43,7 +43,7 @@ public class Interaction : MonoBehaviour
                 {
                     curInteractGameObject = hit.collider.gameObject;
                     interactableObject = hit.collider.GetComponent<IInteractableObject>();
-                    ShowUI();
+                    ShowUI();                    
                 }
             }
             else
