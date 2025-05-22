@@ -33,16 +33,17 @@ public class StatsManager : MonoBehaviour, IInterfaceStats
     }
     void Update()
     {
-        MomentaryHeal(ref Instance.playerStats.curStamina, -0.1f);
+        float fValue = MomentaryHeal(Instance.playerStats.curStamina, -0.1f);
+        Instance.playerStats.curStamina = Mathf.Clamp(fValue,0,100);
     }
     public void ContinuousHeal(ref float energe, float healRate)
     {
         energe += healRate;
     }
 
-    public void MomentaryHeal(ref float energe, float healRate)
+    public float MomentaryHeal(float energe, float healRate)
     {
-        energe += healRate;
+        return energe += healRate;
     }
 
     public void LimitValue(ref float energe, float max)
