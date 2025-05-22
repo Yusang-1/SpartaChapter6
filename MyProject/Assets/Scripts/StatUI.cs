@@ -11,6 +11,7 @@ public class StatUI : MonoBehaviour
     [SerializeField] Image imageStamina;
     private Color imageStaminaColor;
     Coroutine coroutine;
+
     void Start()
     {
         rectTransformHP = GameObject.Find("HP").GetComponent<RectTransform>();

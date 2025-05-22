@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StatsManager : MonoBehaviour, InterfaceStats
+public class StatsManager : MonoBehaviour, IInterfaceStats
 {
     private static StatsManager instance = null;
     public AbsStats playerStats;

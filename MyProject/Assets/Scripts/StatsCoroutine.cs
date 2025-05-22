@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class StatsCoroutine : MonoBehaviour, InterfaceStats
+public class StatsCoroutine : MonoBehaviour, IInterfaceStats
 {
     [SerializeField] StatUI statUI;
     IEnumerator coroutine;

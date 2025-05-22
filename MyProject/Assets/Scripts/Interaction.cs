@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using Unity.VisualScripting;
 
 public class Interaction : MonoBehaviour
 {
@@ -13,7 +11,7 @@ public class Interaction : MonoBehaviour
     float lastSearchTime = 0;
     GameObject curInteractGameObject;
     Camera cam;
-    InteractableObject interactableObject;
+    IInteractableObject interactableObject;
     public void Start()
     {
         cam = Camera.main;
@@ -31,7 +29,7 @@ public class Interaction : MonoBehaviour
                 if(hit.collider.gameObject != curInteractGameObject)
                 {
                     curInteractGameObject = hit.collider.gameObject;
-                    interactableObject = hit.collider.GetComponent<InteractableObject>();
+                    interactableObject = hit.collider.GetComponent<IInteractableObject>();
                     ShowUI();
                 }
             }

@@ -1,4 +1,4 @@
-public interface InterfaceStats
+public interface IInterfaceStats
 {
     void ContinuousHeal(ref float energe, float healRate);
 

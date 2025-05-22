@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public interface InteractableObject
+public interface IInteractableObject
 {
     string getObjectData();
 }
 
-public class ItemObject : MonoBehaviour, InteractableObject
+public class ItemObject : MonoBehaviour, IInteractableObject
 {
     public ItemData itemData;
 
