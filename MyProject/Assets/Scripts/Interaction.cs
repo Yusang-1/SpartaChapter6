@@ -7,6 +7,7 @@ public class Interaction : MonoBehaviour
     [SerializeField] LayerMask mask;
     [SerializeField] GameObject InteractUI;
     [SerializeField] TextMeshProUGUI InteractText;
+    [SerializeField] Inventory inventory;
     float searchRate = 0.5f;
     float lastSearchTime = 0;
     GameObject curInteractGameObject;
@@ -17,6 +18,15 @@ public class Interaction : MonoBehaviour
         cam = Camera.main;
     }
 
+    private void Update()
+    {
+        if(InteractUI.activeSelf == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log(curInteractGameObject.GetComponent<ItemObject>().itemData.itemName);
+            inventory.AddInventory(curInteractGameObject.GetComponent<ItemObject>().itemData);
+            curInteractGameObject.SetActive(false);
+        }
+    }
     private void FixedUpdate()
     {       
         if(Time.time - lastSearchTime > searchRate)
@@ -30,7 +40,7 @@ public class Interaction : MonoBehaviour
                 {
                     curInteractGameObject = hit.collider.gameObject;
                     interactableObject = hit.collider.GetComponent<IInteractableObject>();
-                    ShowUI();
+                    ShowUI();                    
                 }
             }
             else
@@ -44,6 +54,6 @@ public class Interaction : MonoBehaviour
     void ShowUI()
     {
         InteractUI.SetActive(true);
-        InteractText.text = interactableObject.getObjectData();
+        InteractText.text = interactableObject.getObjectData();        
     }
 }
