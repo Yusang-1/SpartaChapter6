@@ -1,14 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] GameObject inventoryImage;
     [SerializeField] Transform inventoryArea;
     [SerializeField] Inventory inventory;
+    List<ItemUI> itemUI = new List<ItemUI>();
     List<GameObject> inventoryImageList = new List<GameObject>();
     List<TextMeshProUGUI> InvNameList = new List<TextMeshProUGUI>();
     List<TextMeshProUGUI> InvStackList = new List<TextMeshProUGUI>();
+
     void Start()
     {
         for (int i = 0; i < 14; i++)
@@ -16,21 +19,20 @@ public class InventoryUI : MonoBehaviour
             inventoryImageList.Add(Instantiate(inventoryImage, inventoryArea));
             InvNameList.Add(inventoryImageList[i].transform.GetChild(0).GetComponent<TextMeshProUGUI>());
             InvStackList.Add(inventoryImageList[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>());
+            itemUI.Add(inventoryImageList[i].GetComponent<ItemUI>());
         }
-    }
+    }    
 
-    private void Update()
+    public void UpdateInventory()
     {
-        if (gameObject.activeSelf)
-        {
-            string[] nameArr = inventory.InventoryUIName();
-            int[] stackArr = inventory.InventoryUIStack();
+        List<ItemData> itemDataList = inventory.InventoryItemData();
+        int[] stackArr = inventory.InventoryUIStack();
 
-            for (int i = 0; i < nameArr.Length; i++)
-            {
-                InvNameList[i].text = nameArr[i];
-                InvStackList[i].text = stackArr[i].ToString();
-            }
+        for (int i = 0; i < itemDataList.Count; i++)
+        {
+            InvNameList[i].text = itemDataList[i].itemName;
+            InvStackList[i].text = stackArr[i].ToString();
+            itemUI[i].itemData = itemDataList[i];
         }
     }
 }

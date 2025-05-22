@@ -28,18 +28,6 @@ public class Inventory : MonoBehaviour
             }
         }
     }
-
-    public string[] InventoryUIName()
-    {
-        string[] stringName = new string[inventoryItems.Count];
-        for(int i = 0; i < inventoryItems.Count; i++)
-        {
-            stringName[i] = inventoryItems[i].itemName;
-            Debug.Log(stringName[i]);
-        }
-        return stringName;
-    }
-
     public int[] InventoryUIStack()
     {
         int[] intStack = new int[ItemStack.Count];
@@ -48,5 +36,10 @@ public class Inventory : MonoBehaviour
             intStack[i] = ItemStack[i];
         }
         return intStack;
+    }
+
+    public List<ItemData> InventoryItemData()
+    {
+        return inventoryItems;
     }
 }

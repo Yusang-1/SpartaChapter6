@@ -3,6 +3,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     private static UIManager instance;
+    [SerializeField] InventoryUI inventoryUIScript;
     [SerializeField] GameObject inventoryUI;
 
     private void Awake()
@@ -36,7 +37,8 @@ public class UIManager : MonoBehaviour
         {
             if(inventoryUI.activeSelf == false)
             {
-                inventoryUI.SetActive(true);
+                inventoryUIScript.UpdateInventory();
+                inventoryUI.SetActive(true);                
             }
             else
             {
