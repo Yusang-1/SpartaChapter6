@@ -3,8 +3,9 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     private static UIManager instance;
-    [SerializeField] InventoryUI inventoryUIScript;
+    public InventoryUI inventoryUIScript;
     [SerializeField] GameObject inventoryUI;
+    [SerializeField] GameObject UseItemUI;
 
     private void Awake()
     {
