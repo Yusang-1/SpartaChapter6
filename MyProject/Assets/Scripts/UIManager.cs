@@ -3,6 +3,7 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     private static UIManager instance;
+    [SerializeField] GameObject inventoryUI;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class UIManager : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
     public static UIManager Instance
     {
         get
@@ -28,5 +30,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if(inventoryUI.activeSelf == false)
+            {
+                inventoryUI.SetActive(true);
+            }
+            else
+            {
+                inventoryUI.SetActive(false);
+            }
+        }
+    }
 }
