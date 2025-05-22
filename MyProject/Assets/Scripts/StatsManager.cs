@@ -30,9 +30,6 @@ public class StatsManager : MonoBehaviour, IInterfaceStats
     public void Start()
     {
         playerStats = new PlayerStats(100, 100);
-        Debug.Log(playerStats.MaxHp);
-        Debug.Log(playerStats.curHp);
-        Debug.Log(playerStats.curStamina);
     }
     void Update()
     {
