@@ -52,33 +52,6 @@ public class Interaction : MonoBehaviour
                 InteractUI.SetActive(false);
             }
         }
-        //if (Time.time - lastSearchTime > searchRate && inventoryUI.gameObject.activeSelf == true)
-        //{
-        //    GraphicRaycaster graphicRaycaster = inventoryUI.transform.GetComponentInParent<GraphicRaycaster>();
-        //    if (graphicRaycaster != null)
-        //    {
-        //        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        //        pointerEventData.position = Input.mousePosition;
-
-        //        List<RaycastResult> results = new List<RaycastResult>();
-        //        graphicRaycaster.Raycast(pointerEventData, results);
-
-        //        foreach (RaycastResult result in results)
-        //        {
-        //            Debug.Log(result);
-        //        }
-        //    }
-        //}
-        
-        //if (Time.time - lastSearchTime > searchRate && inventoryUI.gameObject.activeSelf == true)
-        //{            
-        //    Ray mouseRay = cam.ScreenPointToRay(Input.mousePosition);            
-        //    RaycastHit hit2;
-        //    if (Physics.Raycast(mouseRay, out hit2, Mathf.Infinity, 1<<8) == true)
-        //    {
-        //        Debug.Log(hit2.transform.name);
-        //    }
-        //}
     }
 
     void ShowUI()

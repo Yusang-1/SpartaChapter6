@@ -1,12 +1,13 @@
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
-{
-    private static UIManager instance;
+{    
     public InventoryUI inventoryUIScript;
     [SerializeField] GameObject inventoryUI;
     [SerializeField] GameObject UseItemUI;
 
+#region ½Ì±ÛÅæ ±¸Çö
+    private static UIManager instance;
     private void Awake()
     {
         if (instance == null)
@@ -31,6 +32,7 @@ public class UIManager : MonoBehaviour
             return instance;
         }
     }
+#endregion
 
     private void Update()
     {

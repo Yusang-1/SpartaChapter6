@@ -25,7 +25,6 @@ public class InventoryUI : MonoBehaviour
             InvEquippedList.Add(inventoryImageList[i].transform.GetChild(2).GetComponent<TextMeshProUGUI>());
             itemUI.Add(inventoryImageList[i].GetComponent<ItemUI>());
         }
-
         gameObject.SetActive(false);
     }    
 
@@ -50,8 +49,16 @@ public class InventoryUI : MonoBehaviour
     {
         if((int)itemUI[index].itemData.type != 2)
         {
-            EquippedIndex.Add(index);
-            UpdateInventory();
+            if(EquippedIndex.Contains(index) == false)
+            {
+                EquippedIndex.Add(index);
+                UpdateInventory();
+            }
+            else
+            {
+                EquippedIndex.Remove(index);
+                UpdateInventory();
+            }            
         }       
     }
 }
