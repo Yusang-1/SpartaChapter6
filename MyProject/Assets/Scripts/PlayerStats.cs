@@ -1,12 +1,6 @@
 using UnityEngine;
 public class PlayerStats : AbsStats
 {    
-    //public PlayerStats(float playerMaxHp, float playerMaxStamina) // : base(playerMaxHp, playerMaxStamina)
-    //{
-    //    MaxHp = playerMaxHp; MaxStamina = playerMaxStamina;
-    //    curHp = MaxHp; curStamina = MaxStamina;
-    //}
-
     private void Start()
     {
         changeStats = GameObject.Find("GameManager").GetComponent<ChangeStats>();

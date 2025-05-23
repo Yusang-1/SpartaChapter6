@@ -7,7 +7,7 @@ public class CameraPivot : MonoBehaviour
     [SerializeField] GameObject player;
     private float MouseY;
     private float MouseX;
-    public float mouseSensitivity = 400f; //마우스감도
+    public float mouseSensitivity = 400f;
 
     private void Start()
     {
@@ -29,8 +29,8 @@ public class CameraPivot : MonoBehaviour
 
         MouseY -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        MouseY = Mathf.Clamp(MouseY, -90f, 90f); //Clamp를 통해 최소값 최대값을 넘지 않도록함
+        MouseY = Mathf.Clamp(MouseY, -90f, 90f);
 
-        rigid.rotation = Quaternion.Euler(MouseY, MouseX, 0f);// 각 축을 한꺼번에 계산        
+        rigid.rotation = Quaternion.Euler(MouseY, MouseX, 0f);
     }
 }
