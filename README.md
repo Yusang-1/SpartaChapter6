@@ -13,10 +13,14 @@
 ![Image](https://github.com/user-attachments/assets/071999e3-f5c7-40d5-8a3f-7b8004f792ee)
 
 ---
+
 ### 객체지향을 위한 발버둥
 ![Image](https://github.com/user-attachments/assets/bf4fcc4c-660e-492a-ba9f-3454c391715f)
 ---
 
+### 영상
+![Image](https://github.com/user-attachments/assets/a1c843c0-c40a-4c66-984f-13ded9774e1c)
+---
 ### 구현한 기능
 
 ##### 1. 기본 이동 및 점프
