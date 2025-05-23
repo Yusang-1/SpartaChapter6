@@ -1,13 +1,13 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 public class Move : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpPower;
     [SerializeField] float maxSpeed;
     Rigidbody rigid;
-    Camera cam;
     bool isJump = false;
-
+    Vector3 moveDirection;
     public float mouseSensitivity = 400f; //마우스감도
 
     private float MouseY;
@@ -17,50 +17,41 @@ public class Move : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
         Application.targetFrameRate = 60;
-        cam = Camera.main;
     }
 
     private void Update()
     {
+        Move1();
         Rotate();
     }
 
     void FixedUpdate()
-    {
-        Move1();
-        Jump();       
-
+    {             
         if(Physics.Raycast(rigid.position, Vector3.down, 1.5f, 1 << 6))
         {
             isJump = false;
+        }
+    }    
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        Vector2 dir = context.ReadValue<Vector2>();
+
+        if(dir != null)
+        {
+            moveDirection = new Vector3(dir.x, 0, dir.y);
         }
     }
 
     private void Move1()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            rigid.AddForce(Vector3.forward * moveSpeed, ForceMode.Acceleration);
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            rigid.AddForce(Vector3.left * moveSpeed, ForceMode.Acceleration);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            rigid.AddForce(Vector3.back * moveSpeed, ForceMode.Acceleration);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            rigid.AddForce(Vector3.right * moveSpeed, ForceMode.Acceleration);
-        }
+        if (moveDirection != Vector3.zero)
+            rigid.AddForce(moveDirection * moveSpeed, ForceMode.Acceleration);
     }
 
-    void Jump()
+    public void OnJump(InputAction.CallbackContext context)
     {
-        if (isJump) return;
-
-        if (Input.GetKey(KeyCode.Space))
+        if (context.performed == true && isJump == false)
         {
             rigid.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
             isJump = true;
