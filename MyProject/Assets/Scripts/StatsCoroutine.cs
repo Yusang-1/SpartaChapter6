@@ -6,46 +6,39 @@ public class StatsCoroutine : MonoBehaviour, IInterfaceStats
     [SerializeField] StatUI statUI;
     IEnumerator coroutine;
 
-    public void DoCorountine()
+    public void DoCorountine(float time, float amount, int type)
     {
         if(coroutine == null)
         {
-            coroutine = cHeal();
+            coroutine = cHeal(time, amount, type);
         }
         else
         {
             StopCoroutine(coroutine);
-            coroutine = cHeal();
+            coroutine = cHeal(time, amount, type);
         }
         StartCoroutine(coroutine);
     }
-    public IEnumerator cHeal()
-    {
-        statUI.UIBlink(10, 2);
-        for (float g = 0f; g < 600; g++)
+    public IEnumerator cHeal(float time, float amount, int type)
+    {        
+        statUI.UIBlink(10, type);
+        for (float g = 0f; g < time * 60; g++)
         {
-            ContinuousHeal(ref StatsManager.Instance.playerStats.curStamina, 0.2f);
-            LimitValue(ref StatsManager.Instance.playerStats.curStamina, StatsManager.Instance.playerStats.MaxStamina);
+            float fValue = ChangeStat(StatsManager.Instance.playerStats.curStamina, amount);
+            fValue = LimitValue(fValue,0, StatsManager.Instance.playerStats.MaxStamina);
+            StatsManager.Instance.playerStats.curStamina = fValue;
             yield return null;
         }
         statUI.UIBlinkStop();
     }
 
-    public void ContinuousHeal(ref float energe, float healRate)
-    {
-        energe += healRate;
-    }
-
-    public float MomentaryHeal(float energe, float healRate)
+    public float ChangeStat(float energe, float healRate)
     {
         return energe += healRate;
     }
 
-    public void LimitValue(ref float energe, float max)
+    public float LimitValue(float energe,float min, float max)
     {
-        if (energe > max)
-        {
-            energe = max;
-        }
+        return Mathf.Clamp(energe, min, max);
     }
 }
