@@ -17,5 +17,5 @@ MonoBehaviour:
   type: 2
   dropPrefeb: {fileID: 8321100552050972036, guid: d8ad0f3bd1bc258428c457823ab2a087, type: 3}
   isStackable: 1
-  maxStack: 20
+  maxStack: 5
   consumables: []
